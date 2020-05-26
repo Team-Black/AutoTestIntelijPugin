@@ -27,8 +27,7 @@
 //    private String METHOD_DESCRIPTOR;
 //    private String METHOD_NAME;
 //    private String TEST_NAME;
-//    private String JRE_SOURCEPATH;
-//
+//    private String JRE_SOURCEPATH = System.getProperty("java.home", "") + "src.zip";
 //
 //    private int formatMode;
 //
@@ -45,7 +44,6 @@
 //        JBSE_SOURCEPATH   = JBSE_HOME + "src/main/java/";
 //        TARGET_CLASSPATH  = TEST_HOME + "bin/";
 //        TARGET_SOURCEPATH = TEST_HOME + "src/";
-//        JRE_SOURCEPATH += "src.zip";
 //        CLASSPATH       = new String[]{TARGET_CLASSPATH};
 //        SOURCEPATH      = new String[]{JBSE_SOURCEPATH, TARGET_SOURCEPATH, JRE_SOURCEPATH};
 //        OUT_FILE        = TEST_HOME + TEST_NAME;

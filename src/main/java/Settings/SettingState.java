@@ -7,20 +7,15 @@ public class SettingState {
     -z3_path C:/Users/I535031/Desktop/Study/Huawei-Project/z3/build/Release/z3.exe
     -test_home C:/Users/I535031/Desktop/Study/Huawei-Project/jbse-examples/
     -mc smalldemos/array_3/ArrayDemo3 -
-    md (II)V -mn entryPoint
-    -tn out/ArrayDemoTest1.java
-    -jre C:/Program_Files/AdoptOpenJDK/jdk-8.0.242.08-hotspot/
-    -format 5
-
      */
-    public String JBSE_HOME;
-    public String Z3_PATH;
-    public String TEST_HOME;
-    public String METHOD_CLASS;
-    public String METHOD_DESCRIPTOR;
-    public String METHOD_NAME;
-    public String TEST_NAME;
-    public String JRE_SOURCEPATH;
+
+    public String jbseHome = "C:/Users/PC/Documents/1.Projects/TRPO/JavaAutoTest-master/";
+    public String z3Path  = "C:/Users/PC/Documents/1.Projects/0.mylibs/z3-4.8.7-x64-win/bin/z3.exe";
+    public String testHome = "C:/Users/PC/Documents/1.Projects/TRPO/examplesJBSE/";
+    public String methodClass = "smalldemos/array_3/ArrayDemo3";
+    public String methodDescriptor = "(II)V";
+    public String methodName = "entryPoint";
+    public String testName ="out/ArrayDemoTest1.java";
 
     public String inputPath = "/target/classes";
     public String outputPath = "/src/test/TestPlugin";
