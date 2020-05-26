@@ -1,0 +1,34 @@
+<idea-plugin>
+    <id>org.blackteam.concolic-auto-test-plugin</id>
+    <name>ConcolicAutoTest</name>
+    <vendor email="saapport@yourcompany.com" url="http://www.yourcasdompany.com">HuaweiProject</vendor>
+
+    <description><![CDATA[
+    Plugin for concolic execution test generation.
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <applicationService serviceImplementation="Settings.SettingsPlugin"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <group id="testPlugin.Action" text="AutoTestGenerator" description="Generates tests for the specified methods using symbolic executions">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="createTests.AllTestsAction" class="Starting.StartingTests" text="Create Tests"
+                    description="Start generating tests">
+                <add-to-group group-id="testPlugin.Action" anchor="first"/>
+            </action>
+        </group>
+
+        <action id="testPlugin.SettingsAction" class="Settings.SettingAction" text="Setting"
+                description="To work correctly, fill in all the fields">
+            <add-to-group group-id="testPlugin.Action" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
