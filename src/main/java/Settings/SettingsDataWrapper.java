@@ -23,7 +23,9 @@ public class SettingsDataWrapper extends DialogWrapper {
     private JTextField txtMethodDescriptor = new JTextField();
     private JTextField txtMethodName = new JTextField();
     private JTextField txtTestName = new JTextField();
-    private JTextField txtFormat = new JTextField();
+    private JTextField txtJrePath = new JTextField();
+    private JTextField txtJarPath = new JTextField();
+    //    private JTextField txtFormat = new JTextField();
 
     protected SettingsDataWrapper(boolean canBeParent) {
         super(canBeParent);
@@ -32,14 +34,16 @@ public class SettingsDataWrapper extends DialogWrapper {
 
         PersistentStateComponent<SettingState> state = new SettingsPlugin().getInstance();
         if (state != null) {
-            txtFormat.setText(Objects.requireNonNull(state.getState()).format);
-            txtJbseHome.setText(Objects.requireNonNull(state.getState()).jbseHome);
+//            txtFormat.setText(Objects.requireNonNull(state.getState()).format);
+            txtJrePath.setText(Objects.requireNonNull(state.getState()).jrePath);
+            txtJarPath.setText(Objects.requireNonNull(state.getState().jarPath));
             txtZ3Path.setText(Objects.requireNonNull(state.getState()).z3Path);
+            txtJbseHome.setText(Objects.requireNonNull(state.getState()).jbseHome);
             txtTestHome.setText(Objects.requireNonNull(state.getState()).testHome);
-            txtMethodClass.setText(Objects.requireNonNull(state.getState()).methodClass);
-            txtMethodDescriptor.setText(Objects.requireNonNull(state.getState()).methodDescriptor);
-            txtMethodName.setText(Objects.requireNonNull(state.getState()).methodName);
             txtTestName.setText(Objects.requireNonNull(state.getState()).testName);
+            txtMethodClass.setText(Objects.requireNonNull(state.getState()).methodClass);
+            txtMethodName.setText(Objects.requireNonNull(state.getState()).methodName);
+            txtMethodDescriptor.setText(Objects.requireNonNull(state.getState()).methodDesc);
         }
     }
 
@@ -51,7 +55,7 @@ public class SettingsDataWrapper extends DialogWrapper {
                 .setDefaultWeightX(1.0)
                 .setDefaultFill(GridBagConstraints.HORIZONTAL);
 
-        panel.setPreferredSize(new Dimension(600, 400));
+        panel.setPreferredSize(new Dimension(600, 300));
 //        1 txtJbseHome
 //        2 txtZ3Path
 //        3 txtTestHome
@@ -60,11 +64,14 @@ public class SettingsDataWrapper extends DialogWrapper {
 //        6 txtMethodName
 //        7 txtMethodDescriptor
 
-        panel.add(label("All formats: fulltext-1, text-2, graph-3, path-4, junit-5"),
-                gb.nextLine().next().weightx(0.2));
+//        panel.add(label("Format :"), gb.nextLine().next().weightx(0.2));
+//        panel.add(txtFormat, gb.next().weightx(0.8));
 
-        panel.add(label("Format :"), gb.nextLine().next().weightx(0.2));
-        panel.add(txtFormat, gb.next().weightx(0.8));
+        panel.add(label("Enter JAR path :"), gb.nextLine().next().weightx(0.2));
+        panel.add(txtJarPath, gb.next().weightx(0.8));
+
+        panel.add(label("Enter JRE path :"), gb.nextLine().next().weightx(0.2));
+        panel.add(txtJrePath, gb.next().weightx(0.8));
 
         panel.add(label("Enter JBSE home path:"), gb.nextLine().next().weightx(0.2));
         panel.add(txtJbseHome, gb.next().weightx(0.8));
@@ -93,14 +100,16 @@ public class SettingsDataWrapper extends DialogWrapper {
     @Override
     protected void doOKAction() {
         PersistentStateComponent<SettingState> state = new SettingsPlugin().getInstance();
+        Objects.requireNonNull(state.getState()).jarPath = txtJarPath.getText();
+        Objects.requireNonNull(state.getState()).jrePath = txtJrePath.getText();
         Objects.requireNonNull(state.getState()).jbseHome = txtJbseHome.getText();
         Objects.requireNonNull(state.getState()).z3Path = txtZ3Path.getText();
         Objects.requireNonNull(state.getState()).testHome = txtTestHome.getText();
         Objects.requireNonNull(state.getState()).testName = txtTestName.getText();
         Objects.requireNonNull(state.getState()).methodClass = txtMethodClass.getText();
         Objects.requireNonNull(state.getState()).methodName = txtMethodName.getText();
-        Objects.requireNonNull(state.getState()).methodDescriptor = txtMethodDescriptor.getText();
-        Objects.requireNonNull(state.getState()).format = txtFormat.getText();
+        Objects.requireNonNull(state.getState()).methodDesc = txtMethodDescriptor.getText();
+//        Objects.requireNonNull(state.getState()).format = txtFormat.getText();
 
         close(OK_EXIT_CODE);
     }
