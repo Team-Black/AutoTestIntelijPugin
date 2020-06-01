@@ -13,8 +13,8 @@ public class StartingTests extends AnAction {
 
         try {
             JBSEConnection jbseConnection =  JBSEConnection.class.newInstance();
-            jbseConnection.start();
-        } catch (InstantiationException | IllegalAccessException ex) {
+            jbseConnection.start2();
+        } catch (InstantiationException | IllegalAccessException | IOException ex) {
             ex.printStackTrace();
         }
 
