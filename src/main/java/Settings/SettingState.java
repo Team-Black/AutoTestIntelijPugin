@@ -10,5 +10,4 @@ public class SettingState {
     public String methodClass = "smalldemos/array_3/ArrayDemo3";
     public String methodName  = "entryPoint";
     public String methodDesc  = "(II)V";
-//    public String format = "5";
 }
