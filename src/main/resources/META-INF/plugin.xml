@@ -12,12 +12,13 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
         <applicationService serviceImplementation="Settings.SettingsPlugin"/>
+        <projectConfigurable parentId="default" instance="Settings.OtherSettingsConfigurable"
+                             id="org.company.ProjectSettingsConfigurable" displayName="My Project Settings"
+                             nonDefaultProject="true"/>11
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
         <group id="testPlugin.Action" text="AutoTestGenerator" description="Generates tests for the specified methods using symbolic executions">
             <add-to-group group-id="MainMenu" anchor="last"/>
             <action id="createTests.AllTestsAction" class="Starting.StartingTests" text="Create Tests"
@@ -26,9 +27,14 @@
             </action>
         </group>
 
-        <action id="testPlugin.SettingsAction" class="Settings.SettingAction" text="Setting"
+        <action id="testPlugin.SettingsAction" class="Settings.SettingAction" text="Autotest Settings"
                 description="To work correctly, fill in all the fields">
             <add-to-group group-id="testPlugin.Action" anchor="last"/>
+            <add-to-group group-id="OtherMenu" anchor="last"/>
+        </action>
+        <action id="context-test-gen" class="Starting.ContextPopUpMenuTestOption" text="Create Test"
+                description="Context PopUp Menu Test Option">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </action>
     </actions>
 </idea-plugin>
