@@ -9,6 +9,10 @@ public class IdeaOtherSettingsForm {
     private JTextField enterZ3TextField;
     private JPanel rootPanel;
 
+    public JPanel getRootPanel() {
+        return rootPanel;
+    }
+
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }

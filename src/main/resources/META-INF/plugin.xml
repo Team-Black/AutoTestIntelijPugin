@@ -14,8 +14,10 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="Settings.SettingsPlugin"/>
         <projectConfigurable parentId="default" instance="Settings.IdeaOtherSettingsConfigure"
-                             id="org.company.ProjectSettingsConfigurable" displayName="My Project Settings"
+                             id="org.company.ApplicationSettingsConfigurable" displayName="AutoTest Settings"
                              nonDefaultProject="true"/>11
+<!--        <applicationConfigurable parentId="tools" instance="Settings.IdeaOtherSettingsForm"-->
+<!--                                     id="org.company.ApplicationSettingsConfigurable" displayName="AutoTest Settings"/>-->
     </extensions>
 
     <actions>

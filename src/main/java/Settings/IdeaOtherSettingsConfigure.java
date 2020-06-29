@@ -15,7 +15,7 @@ public class IdeaOtherSettingsConfigure implements SearchableConfigurable {
     @Override
     public JComponent createComponent() {
         mGUI = new IdeaOtherSettingsForm();
-        return mGUI.$$$getRootComponent$$$();
+        return mGUI.getRootPanel();
     }
 
     @Override
