@@ -3,9 +3,20 @@ package Settings;
 import javax.swing.*;
 
 public class IdeaOtherSettingsForm {
-    private JTextField фывфывфывфыTextField;
-    private JTextField ыфвфывфывфывфыTextField;
-    private JTextField ыфвфывфывTextField;
-    private JTextField фывфывыфвфывTextField;
-    private JTextField фывфывфывфывфывTextField;
+    private JTextField enterJBSETextField;
+    private JTextField enterJRETextField;
+    private JTextField enterJBSEhomeTextField;
+    private JTextField enterZ3TextField;
+    private JPanel rootPanel;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$() {
+        return rootPanel;
+    }
 }

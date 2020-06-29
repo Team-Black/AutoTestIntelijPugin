@@ -8,14 +8,14 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
-public class OtherSettingsConfigurable implements SearchableConfigurable {
-    OtherSettingsConfigurableGUI mGUI;
+public class IdeaOtherSettingsConfigure implements SearchableConfigurable {
+    IdeaOtherSettingsForm mGUI;
 
     @Nullable
     @Override
     public JComponent createComponent() {
-        mGUI = new OtherSettingsConfigurableGUI();
-        return mGUI.getRootPanel();
+        mGUI = new IdeaOtherSettingsForm();
+        return mGUI.$$$getRootComponent$$$();
     }
 
     @Override

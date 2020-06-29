@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Settings.IdeaOtherSettingsForm">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
@@ -18,13 +18,15 @@
           <component id="bc7d3" class="javax.swing.JLabel">
             <constraints border-constraint="West"/>
             <properties>
-              <text value="Label"/>
+              <text value=" JBSE JAR:"/>
             </properties>
           </component>
-          <component id="45167" class="javax.swing.JTextField" binding="фывфывфывфыTextField" default-binding="true">
-            <constraints border-constraint="Center"/>
+          <component id="45167" class="javax.swing.JTextField" binding="enterJBSETextField" default-binding="true">
+            <constraints border-constraint="Last"/>
             <properties>
-              <text value="фывфывфывфы"/>
+              <background color="-9868951"/>
+              <foreground color="-4930110"/>
+              <text value="EnterJBSE"/>
             </properties>
           </component>
         </children>
@@ -39,13 +41,14 @@
           <component id="cd232" class="javax.swing.JLabel">
             <constraints border-constraint="West"/>
             <properties>
-              <text value="Label"/>
+              <text value=" JRE-path:"/>
             </properties>
           </component>
-          <component id="701e8" class="javax.swing.JTextField" binding="ыфвфывфывфывфыTextField" default-binding="true">
-            <constraints border-constraint="Center"/>
+          <component id="701e8" class="javax.swing.JTextField" binding="enterJRETextField" default-binding="true">
+            <constraints border-constraint="Last"/>
             <properties>
-              <text value="ыфвфывфывфывфы"/>
+              <background color="-9868951"/>
+              <text value="EnterJRE"/>
             </properties>
           </component>
         </children>
@@ -60,13 +63,17 @@
           <component id="55c68" class="javax.swing.JLabel">
             <constraints border-constraint="West"/>
             <properties>
-              <text value="Label"/>
+              <horizontalAlignment value="10"/>
+              <horizontalTextPosition value="11"/>
+              <text value=" JBSE home:"/>
             </properties>
           </component>
-          <component id="43297" class="javax.swing.JTextField" binding="ыфвфывфывTextField" default-binding="true">
-            <constraints border-constraint="Center"/>
+          <component id="43297" class="javax.swing.JTextField" binding="enterJBSEhomeTextField" default-binding="true">
+            <constraints border-constraint="Last"/>
             <properties>
-              <text value="ыфвфывфыв"/>
+              <background color="-9868951"/>
+              <horizontalAlignment value="10"/>
+              <text value="EnterJBSEhome"/>
             </properties>
           </component>
         </children>
@@ -81,41 +88,21 @@
           <component id="e8de5" class="javax.swing.JLabel">
             <constraints border-constraint="West"/>
             <properties>
-              <text value="Label"/>
+              <text value="Z3 path:"/>
             </properties>
           </component>
-          <component id="55d1e" class="javax.swing.JTextField" binding="фывфывыфвфывTextField" default-binding="true">
-            <constraints border-constraint="Center"/>
+          <component id="55d1e" class="javax.swing.JTextField" binding="enterZ3TextField" default-binding="true">
+            <constraints border-constraint="Last"/>
             <properties>
-              <text value="фывфывыфвфыв"/>
-            </properties>
-          </component>
-        </children>
-      </grid>
-      <grid id="fdcb0" layout-manager="BorderLayout" hgap="0" vgap="0">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children>
-          <component id="ee5fc" class="javax.swing.JLabel">
-            <constraints border-constraint="West"/>
-            <properties>
-              <text value="Label"/>
-            </properties>
-          </component>
-          <component id="fa5f4" class="javax.swing.JTextField" binding="фывфывфывфывфывTextField" default-binding="true">
-            <constraints border-constraint="Center"/>
-            <properties>
-              <text value="фывфывфывфывфыв"/>
+              <background color="-9868951"/>
+              <text value="EnterZ3"/>
             </properties>
           </component>
         </children>
       </grid>
       <vspacer id="92d03">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
     </children>
