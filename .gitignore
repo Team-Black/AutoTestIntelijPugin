@@ -10,6 +10,3 @@
 .idea/modules/
 .idea/sbt.xml
 .idea/uiDesigner.xml
-gradlew
-gradlew.bat
-settings.gradle
