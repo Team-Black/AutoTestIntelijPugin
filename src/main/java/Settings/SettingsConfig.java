@@ -10,20 +10,21 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
-public class IdeaOtherSettingsConfig implements SearchableConfigurable {
-    private IdeaOtherSettingsForm mGUI;
+/* Класс берёт GUI для настроек и обрабатывает все операции пользователя с ним*/
+public class SettingsConfig implements SearchableConfigurable {
+    private SettingsForm mGUI;
     private PersistentStateComponent<SettingState> mState;
 
     @Nullable
     @Override
     public JComponent createComponent() {
-        mGUI = new IdeaOtherSettingsForm();
+        mGUI = new SettingsForm();
         mGUI.createUI();
         return mGUI.getRootPanel();
     }
 
-    public IdeaOtherSettingsConfig() {
-        mState = new SettingsPlugin().getInstance();
+    public SettingsConfig() {
+        mState = new SettingsPersist().getInstance();
     }
 
     @Override

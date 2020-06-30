@@ -7,33 +7,22 @@
     Plugin for concolic execution test generation.
     ]]></description>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="Settings.SettingsPlugin"/>
-        <projectConfigurable parentId="default" instance="Settings.IdeaOtherSettingsConfig"
+        <!--    Объявляем расширение для хранения настроек    -->
+        <applicationService serviceImplementation="Settings.SettingsPersist"/>
+        <!--    Объявляем расширение для отображения настроек в меню Settings -> other    -->
+        <!--    ApplicationSettings - не зависят от проекта                               -->
+        <projectConfigurable parentId="default" instance="Settings.SettingsConfig"
                              id="org.company.ApplicationSettingsConfigurable" displayName="AutoTest Settings"
                              nonDefaultProject="true"/>
     </extensions>
 
     <actions>
-        <group id="testPlugin.Action" text="AutoTestGenerator" description="Generates tests for the specified methods using symbolic executions">
-            <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="createTests.AllTestsAction" class="Starting.StartingTests" text="Create Tests"
-                    description="Start generating tests">
-                <add-to-group group-id="testPlugin.Action" anchor="first"/>
-            </action>
-        </group>
-
-        <action id="testPlugin.SettingsAction" class="Settings.SettingAction" text="Autotest Settings"
-                description="To work correctly, fill in all the fields">
-            <add-to-group group-id="testPlugin.Action" anchor="last"/>
-            <add-to-group group-id="OtherMenu" anchor="last"/>
-        </action>
+        <!--    Единственное действие - появляется в контекстном меню ( ПКМ на класс)    -->
         <action id="context-test-gen" class="Starting.ContextPopUpMenuTestOption" text="Create Test"
-                description="Context PopUp Menu Test Option">
+                description="Context popUp menu test option">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
         </action>
     </actions>
