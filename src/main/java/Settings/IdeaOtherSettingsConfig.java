@@ -1,30 +1,49 @@
 package Settings;
 
+import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
+import com.intellij.openapi.project.Project;
 import com.sun.istack.Nullable;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
-public class IdeaOtherSettingsConfigure implements SearchableConfigurable {
-    IdeaOtherSettingsForm mGUI;
+public class IdeaOtherSettingsConfig implements SearchableConfigurable {
+    private IdeaOtherSettingsForm mGUI;
+    private PersistentStateComponent<SettingState> mState;
 
     @Nullable
     @Override
     public JComponent createComponent() {
         mGUI = new IdeaOtherSettingsForm();
+        mGUI.createUI();
         return mGUI.getRootPanel();
+    }
+
+    public IdeaOtherSettingsConfig() {
+        mState = new SettingsPlugin().getInstance();
+    }
+
+    @Override
+    public @org.jetbrains.annotations.Nullable Runnable enableSearch(String option) {
+        return null;
+    }
+
+    @Override
+    public void reset() {
+        mGUI.reset();
     }
 
     @Override
     public boolean isModified() {
-        return false;
+        return mGUI.isModified();
     }
 
     @Override
     public void apply() throws ConfigurationException {
+        mGUI.apply();
     }
 
     @Override
@@ -39,6 +58,6 @@ public class IdeaOtherSettingsConfigure implements SearchableConfigurable {
 
     @Override
     public @Nls(capitalization = Nls.Capitalization.Title) String getDisplayName() {
-        return null;
+        return  "AutoTest Generator";
     }
 }

@@ -13,11 +13,9 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="Settings.SettingsPlugin"/>
-        <projectConfigurable parentId="default" instance="Settings.IdeaOtherSettingsConfigure"
+        <projectConfigurable parentId="default" instance="Settings.IdeaOtherSettingsConfig"
                              id="org.company.ApplicationSettingsConfigurable" displayName="AutoTest Settings"
-                             nonDefaultProject="true"/>11
-<!--        <applicationConfigurable parentId="tools" instance="Settings.IdeaOtherSettingsForm"-->
-<!--                                     id="org.company.ApplicationSettingsConfigurable" displayName="AutoTest Settings"/>-->
+                             nonDefaultProject="true"/>
     </extensions>
 
     <actions>
@@ -36,7 +34,7 @@
         </action>
         <action id="context-test-gen" class="Starting.ContextPopUpMenuTestOption" text="Create Test"
                 description="Context PopUp Menu Test Option">
-            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
         </action>
     </actions>
 </idea-plugin>
