@@ -1,11 +1,8 @@
-package JBSElogic;
+package Logic;
 
 import Settings.SettingState;
 import Settings.SettingsPersist;
 import com.intellij.openapi.components.PersistentStateComponent;
-
-import java.io.IOException;
-import java.util.Objects;
 
 public class JBSEConnection {
 

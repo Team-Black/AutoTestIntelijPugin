@@ -21,7 +21,7 @@
 
     <actions>
         <!--    Единственное действие - появляется в контекстном меню ( ПКМ на класс)    -->
-        <action id="context-test-gen" class="Starting.ContextPopUpMenuTestOption" text="Create Test"
+        <action id="context-test-gen" class="Action.StartTestAction" text="Create Test"
                 description="Context popUp menu test option">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
         </action>

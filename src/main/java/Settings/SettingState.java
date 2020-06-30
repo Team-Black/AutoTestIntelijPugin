@@ -11,10 +11,10 @@ public class SettingState {
 
     /* Часть, которую теперь плагин получает из VFS и PSI*/
 
-//    public String testHome    = "C:/Users/PC/Documents/1.Projects/TRPO/examplesJBSE/";
-//    public String testName    = "out/ArrayDemoTest1.java";
-//    public String methodClass = "smalldemos/array_3/ArrayDemo3";
-//    public String methodName  = "entryPoint";
-//    public String methodDesc  = "(II)V";
+    public String testHome    = "C:/Users/PC/Documents/1.Projects/TRPO/examplesJBSE/";
+    public String testName    = "out/ArrayDemoTest1.java";
+    public String methodClass = "smalldemos/array_3/ArrayDemo3";
+    public String methodName  = "entryPoint";
+    public String methodDesc  = "(II)V";
 
 }

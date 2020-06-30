@@ -1,16 +1,13 @@
-package Starting;
+package Action;
 
-import JBSElogic.JBSEConnection;
+import Logic.JBSEConnection;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.command.CommandProcessor;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vcs.VcsBundle;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.vfs.VirtualFileSystem;
-import sun.reflect.generics.tree.Tree;
 
-import javax.swing.tree.TreePath;
 import java.util.Objects;
 
 import static java.lang.Thread.sleep;
