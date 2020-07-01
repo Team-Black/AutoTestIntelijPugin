@@ -90,6 +90,7 @@ public class StartTestAction extends AnAction {
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
+
             virtualFile = LocalFileSystem.getInstance().findFileByPath(projectPath+outputClass);
             pathToProject.refresh(true,true);
         } while (virtualFile == null);
