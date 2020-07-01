@@ -41,7 +41,6 @@ public class StartTestAction extends AnAction {
 
         // виртуальный файл корня проекта, чтобы можно было рекурсивно обновлять весь проект
         pathToProject = LocalFileSystem.getInstance().findFileByPath(projectPath);
-        // Ищим папку в которую будем сбрасывать сгенерированные файлы
         VirtualFile generatedDir = LocalFileSystem.getInstance().findFileByPath(projectPath + GEN_FOLDER_NAME + "/");
         pathToProject.refresh(true,true);
 
@@ -68,11 +67,14 @@ public class StartTestAction extends AnAction {
                     Messages.getInformationIcon());
         }
 
-        runJBSE(e);
-        updateWhileNonVisible(e);
+//        runJBSE(e);
+//        updateWhileNonVisible(e);
 
-        Messages.showMessageDialog(e.getProject(), "Test generation is completed", "Generation of test",
+        Messages.showMessageDialog(namesAndDescriptors.toString(), "Generation of test",
                 Messages.getInformationIcon());
+
+//        Messages.showMessageDialog(e.getProject(), "Test generation is completed", "Generation of test",
+//                Messages.getInformationIcon());
     }
 
     private void runJBSE(AnActionEvent e) {

@@ -43,16 +43,6 @@ public class DescExtractor {
             classPool.insertClassPath(projectPath + outDir);
     }
 
-    public static void main(String[] args) throws NotFoundException {
-
-        DescExtractor descExtractor = new DescExtractor();
-
-
-        ArrayList<String> arrayList = descExtractor.getAllSplittedNameAndDec("Minimal");
-        System.out.println(arrayList.get(0));
-        System.out.println(arrayList.get(1));
-    }
-
     /**
      * @param className - имя класса который будем тестировать
      * @return ключь - название метода, значение - дескриптор
