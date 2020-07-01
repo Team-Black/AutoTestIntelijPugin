@@ -16,7 +16,7 @@
   4. Build *cmd-jbse* project or donwload compiled [JBSE JAR file](./all-in-one-jar-1.0-SNAPSHOT.jar);
   5. Dowloads modified JBSE project from [this repo](https://github.com/Team-Black/JavaAutoTest) or download and unzipping [this archive](./JBSEhome.rar);
   6. Download and compile [Z3 pathresolver](https://github.com/Z3Prover/z3);
-  7. Open tesable project and go to <kbd>⚙️ Settings</kbd> -> <kbd>Other</kbd> -> <kbd>AutoTest Settings</kbd>  and specify all the required paths (path to JBSE project, path to JBSE jar, path to Z3 solver and path to JRE (1.8 only);
+  7. Open tesable project and go to <kbd>⚙️ Settings</kbd> -> <kbd>Other</kbd> -> <kbd>AutoTest Settings</kbd>  and specify all the required paths (path to JBSE project, path to JBSE jar, path to Z3 solver and path to JRE 1.8 only);
   8. Click on the right mouse button on the desired class and click on "Create test"
   9. Wait until you see a message that the generation was successful. Notifications in progress are visible at the bottom left.
 
