@@ -72,8 +72,7 @@ public class DescExtractor {
 
     /**
      * list.get(0) - именна методов через запятую
-     * list.get(1) - именна методов через запятую
-     *                    * @Example findMin,findMax,m
+     * list.get(1) - дескрипторы через запятую
      */
     public ArrayList<String> getAllSplittedNameAndDec(String className) throws NotFoundException {
         StringBuilder names = new StringBuilder();

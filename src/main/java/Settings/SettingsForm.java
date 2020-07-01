@@ -20,8 +20,8 @@ public class SettingsForm {
     // заполняем созданный GUI тем что уже хранится в persistence
     public void createUI() {
          state = new SettingsPersist().getInstance();
-        enterJRETextField.setText(Objects.requireNonNull(state.getState()).jrePath);
-        enterJBSETextField.setText(Objects.requireNonNull(state.getState().jarPath));
+        enterJRETextField.setText(Objects.requireNonNull(state.getState()).jdkPath);
+        enterJBSETextField.setText(Objects.requireNonNull(state.getState().jarJBSEpath));
         enterZ3TextField.setText(Objects.requireNonNull(state.getState()).z3Path);
         enterJBSEhomeTextField.setText(Objects.requireNonNull(state.getState()).jbseHome);
     }
@@ -34,8 +34,8 @@ public class SettingsForm {
     // произошли ли изменения
     public boolean isModified() {
         boolean modified = false;
-        modified |= !enterJRETextField.getText().equals(Objects.requireNonNull(state.getState()).jrePath);
-        modified |= !enterJBSETextField.getText().equals(state.getState().jarPath);
+        modified |= !enterJRETextField.getText().equals(Objects.requireNonNull(state.getState()).jdkPath);
+        modified |= !enterJBSETextField.getText().equals(state.getState().jarJBSEpath);
         modified |= !enterZ3TextField.getText().equals(state.getState().z3Path);
         modified |= !enterJBSEhomeTextField.getText().equals(state.getState().jbseHome);
         return modified;
@@ -43,16 +43,16 @@ public class SettingsForm {
 
     // сохраняем изменения в persistence
     public void apply() {
-        Objects.requireNonNull(state.getState()).jarPath = enterJBSETextField.getText();
-        Objects.requireNonNull(state.getState()).jrePath = enterJRETextField.getText();
+        Objects.requireNonNull(state.getState()).jarJBSEpath = enterJBSETextField.getText();
+        Objects.requireNonNull(state.getState()).jdkPath = enterJRETextField.getText();
         Objects.requireNonNull(state.getState()).jbseHome = enterJBSEhomeTextField.getText();
         Objects.requireNonNull(state.getState()).z3Path = enterZ3TextField.getText();
     }
 
     //сбрасываем изменения до тех которые были сохраннены в последний раз
     public void reset() {
-        enterJRETextField.setText(Objects.requireNonNull(state.getState()).jrePath);
-        enterJBSETextField.setText(Objects.requireNonNull(state.getState().jarPath));
+        enterJRETextField.setText(Objects.requireNonNull(state.getState()).jdkPath);
+        enterJBSETextField.setText(Objects.requireNonNull(state.getState().jarJBSEpath));
         enterZ3TextField.setText(Objects.requireNonNull(state.getState()).z3Path);
         enterJBSEhomeTextField.setText(Objects.requireNonNull(state.getState()).jbseHome);
     }
