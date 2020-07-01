@@ -1,7 +1,7 @@
-<idea-plugin>
-    <id>org.blackteam.concolic-auto-test-plugin</id>
+<idea-plugin url="www.jetbrains.com">
+    <id>com.github.javaunchained.autotestplugin</id>
     <name>ConcolicAutoTest</name>
-    <vendor email="saapport@yourcompany.com" url="http://www.yourcasdompany.com">HuaweiProject</vendor>
+    <vendor>javaunchained</vendor>
 
     <description><![CDATA[
     Plugin for concolic execution test generation.

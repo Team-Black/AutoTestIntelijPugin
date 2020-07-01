@@ -48,7 +48,7 @@ public class DescExtractor {
      * @return ключь - название метода, значение - дескриптор
      */
     public Map<String, String> getAllDescriptorAndMethodName(String className) throws NotFoundException {
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         CtMethod[] ctMethods = this.classPool.get(className).getDeclaredMethods();
         for (CtMethod method: ctMethods) {
             map.put(method.getName(), method.getSignature());

@@ -3,7 +3,6 @@ package Settings;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
-import com.intellij.openapi.project.Project;
 import com.sun.istack.Nullable;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;

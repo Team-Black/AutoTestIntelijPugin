@@ -11,7 +11,6 @@ import com.intellij.openapi.vcs.VcsBundle;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import javassist.NotFoundException;
-import net.sf.cglib.core.Local;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -67,14 +66,11 @@ public class StartTestAction extends AnAction {
                     Messages.getInformationIcon());
         }
 
-//        runJBSE(e);
-//        updateWhileNonVisible(e);
+        runJBSE(e);
+        updateWhileNonVisible(e);
 
-        Messages.showMessageDialog(namesAndDescriptors.toString(), "Generation of test",
+        Messages.showMessageDialog(e.getProject(), "Test generation is completed", "Generation of test",
                 Messages.getInformationIcon());
-
-//        Messages.showMessageDialog(e.getProject(), "Test generation is completed", "Generation of test",
-//                Messages.getInformationIcon());
     }
 
     private void runJBSE(AnActionEvent e) {

@@ -1,12 +1,3 @@
-/build/
-.gradle/
-.idea/checkstyle-idea.xml
-.idea/codeStyles/
-.idea/concolic-auto-test-plugin.iml
-.idea/concolic-auto-test-plugin.time
-.idea/gradle.xml
-.idea/jarRepositories.xml
-.idea/misc.xml
-.idea/modules/
-.idea/sbt.xml
-.idea/uiDesigner.xml
+.gradle
+.idea
+build

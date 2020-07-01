@@ -1,4 +1,4 @@
-# AutoTestIntelijPugin
+# autotest-plugin
 
 ![Build](https://github.com/JavaUnchained/autotest-plugin/workflows/Build/badge.svg)
 
