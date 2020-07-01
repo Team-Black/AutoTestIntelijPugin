@@ -11,6 +11,7 @@ import com.intellij.openapi.vcs.VcsBundle;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import javassist.NotFoundException;
+import net.sf.cglib.core.Local;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,27 +30,36 @@ public class StartTestAction extends AnAction {
 
     private static final String GEN_FOLDER_NAME = "GeneratedTest";
     private VirtualFile fileIndokedPopUpMenu;
+    private VirtualFile pathToProject;
 
     @Override
     public void actionPerformed(AnActionEvent e) {
+        // Получаем файл по которому мы нажали ПКМ
         fileIndokedPopUpMenu = e.getData(VIRTUAL_FILE);
+        // получаем путь до проекта
         projectPath = Objects.requireNonNull(e.getProject()).getBasePath() + "/";
 
-        VirtualFile pathToSrc = LocalFileSystem.getInstance().findFileByPath(projectPath);
+        // виртуальный файл корня проекта, чтобы можно было рекурсивно обновлять весь проект
+        pathToProject = LocalFileSystem.getInstance().findFileByPath(projectPath);
+        // Ищим папку в которую будем сбрасывать сгенерированные файлы
         VirtualFile generatedDir = LocalFileSystem.getInstance().findFileByPath(projectPath + GEN_FOLDER_NAME + "/");
-        pathToSrc.refresh(true,true);
+        pathToProject.refresh(true,true);
+
+        // если такой папки нет создаем
         if(generatedDir == null){
             try {
-                generatedDir = LocalFileSystem.getInstance().createChildDirectory(this, pathToSrc, GEN_FOLDER_NAME);
+                generatedDir = LocalFileSystem.getInstance().createChildDirectory(this, pathToProject, GEN_FOLDER_NAME);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
         }
-        pathToSrc.refresh(true,true);
+        pathToProject.refresh(true,true);
+
         String javaFileName = fileIndokedPopUpMenu.getName().replace(".java", "");
         testingClass = fileIndokedPopUpMenu.getCanonicalPath().replace(projectPath+"src/main/java/", "");
         outputClass = "GeneratedTest/" + javaFileName + "Test.java";
 
+        // Получаем дескрипторы и имена методов
         try {
             DescExtractor descExtractor = new DescExtractor(projectPath, typeOfProject());
             namesAndDescriptors = descExtractor.getAllSplittedNameAndDec(javaFileName);
@@ -57,6 +67,9 @@ public class StartTestAction extends AnAction {
             Messages.showMessageDialog("The corresponding .class file does not exist. Compile the project and try again.", "Error",
                     Messages.getInformationIcon());
         }
+
+        runJBSE(e);
+        updateWhileNonVisible(e);
 
         Messages.showMessageDialog(e.getProject(), "Test generation is completed", "Generation of test",
                 Messages.getInformationIcon());
@@ -72,18 +85,16 @@ public class StartTestAction extends AnAction {
     }
 
     private void updateWhileNonVisible(AnActionEvent e) {
-        VirtualFile targetPath = LocalFileSystem.getInstance().
-        findFileByPath(Objects.requireNonNull(e.getProject()).getBasePath() + "/out/");
-        int i = 0;
+        VirtualFile virtualFile;
         do {
             try {
-                sleep(1000);
+                sleep(500);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
-            targetPath.refresh(true,true);
-            i++;
-        } while (i < 6);
+            virtualFile = LocalFileSystem.getInstance().findFileByPath(projectPath+outputClass);
+            pathToProject.refresh(true,true);
+        } while (virtualFile == null);
     }
 
     private TypeBuild typeOfProject() {
