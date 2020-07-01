@@ -27,27 +27,27 @@ public class StartTestAction extends AnAction {
     private String testingClass;
     private ArrayList<String> namesAndDescriptors;
 
-    private static final String NAME_OF_GENERATION_FOLDER = "GeneratedTest";
-    private VirtualFile virtualFile;
+    private static final String GEN_FOLDER_NAME = "GeneratedTest";
+    private VirtualFile fileIndokedPopUpMenu;
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        virtualFile = e.getData(VIRTUAL_FILE);
+        fileIndokedPopUpMenu = e.getData(VIRTUAL_FILE);
         projectPath = Objects.requireNonNull(e.getProject()).getBasePath() + "/";
 
         VirtualFile pathToSrc = LocalFileSystem.getInstance().findFileByPath(projectPath);
-        VirtualFile generatedDir = LocalFileSystem.getInstance().findFileByPath(projectPath + NAME_OF_GENERATION_FOLDER + "/");
+        VirtualFile generatedDir = LocalFileSystem.getInstance().findFileByPath(projectPath + GEN_FOLDER_NAME + "/");
         pathToSrc.refresh(true,true);
         if(generatedDir == null){
             try {
-                generatedDir = LocalFileSystem.getInstance().createChildDirectory(this, pathToSrc, NAME_OF_GENERATION_FOLDER);
+                generatedDir = LocalFileSystem.getInstance().createChildDirectory(this, pathToSrc, GEN_FOLDER_NAME);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
         }
         pathToSrc.refresh(true,true);
-        String javaFileName = virtualFile.getName().replace(".java", "");
-        testingClass = virtualFile.getCanonicalPath().replace(projectPath+"src/main/java/", "");
+        String javaFileName = fileIndokedPopUpMenu.getName().replace(".java", "");
+        testingClass = fileIndokedPopUpMenu.getCanonicalPath().replace(projectPath+"src/main/java/", "");
         outputClass = "GeneratedTest/" + javaFileName + "Test.java";
 
         try {
